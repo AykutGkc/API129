@@ -20,12 +20,16 @@ package get_request_230523;
      */
 
 import base_urls.JsonPlaceHolderBaseUrl;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.hasItems;
+import static org.hamcrest.Matchers.hasSize;
 
-public class get04 extends JsonPlaceHolderBaseUrl {
+public class Get04 extends JsonPlaceHolderBaseUrl {
 
     @Test
     public void get04() {
@@ -39,6 +43,18 @@ public class get04 extends JsonPlaceHolderBaseUrl {
         Response response=given(spec).get("{first}");
         response.prettyPrint();
 
+        //Do assertion
+
+        response.then()
+                .statusCode(200)
+                .contentType(ContentType.JSON)
+                .body("title",hasSize(200))//There should be 200 todos => toplam 200 todos olması gerekir
+                .body("title",hasItem("quis eius est sint explicabo")) //"quis eius est sint explicabo" should be one of the todos title => todos başlıklarından en az birinin "quis eius est sint explicabo" olması gerekir
+                .body("userId",hasItems(2,7,9));
+
+        //hasSize() ==> Eleman sayısını assert eder
+        //hasItem() ==> contains() methodu gibi bir objenin içerilip içerilmediğini assert eder --> import static org.hamcrest.CoreMatchers.hasItems;
+        //hasItems() ==> containsAll() methodu gibi birden fazla objenin içerilip içerilmediğini assert eder
 
 
 
