@@ -1,4 +1,4 @@
-package get_request_230523;
+package get_request;
 
 import base_urls.HerOkuAppBaseUrl;
 import io.restassured.response.Response;

@@ -1,10 +1,8 @@
-package get_request_230523;
+package get_request;
 
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.ResourceBundle;
 
 import static io.restassured.RestAssured.given;
 
