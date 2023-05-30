@@ -77,12 +77,13 @@ public class Get09 extends HerOkuAppBaseUrl {
     @Test
     public void get09b() { //dinamik yöntem
         //Set the url
-        spec.pathParams("first", "booking", "second", 2258);
+        spec.pathParams("first", "booking", "second", 456);
 
         //Set the expected data
-        Map<String, String> bookingsDatesMap = new HerOkuAppTestData().bookingDatesMapMethod("2018-01-01","2019-01-01");
+        HerOkuAppTestData obj=new HerOkuAppTestData();
+        Map<String, String> bookingsDatesMap = obj.bookingDatesMapMethod("2018-01-01","2019-01-01");
 
-        Map<String, Object> expectedData = new HerOkuAppTestData().expectedDataMapMethod("John","Smith",111,true,bookingsDatesMap,"Breakfast");
+        Map<String, Object> expectedData = obj.expectedDataMapMethod("John","Smith",111,true,bookingsDatesMap,"Breakfast");
         System.out.println("expectedData = " + expectedData);
 
         //send the request and get the response
