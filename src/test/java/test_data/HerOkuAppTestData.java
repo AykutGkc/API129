@@ -20,7 +20,10 @@ public class HerOkuAppTestData {
         expectedData.put("totalprice",totalprice );
         expectedData.put("depositpaid", depositpaid);
         expectedData.put("bookingdates", bookingsDatesMap);
-        expectedData.put("additionalneeds", additionalneeds);
+        if (additionalneeds!=null){
+            expectedData.put("additionalneeds", additionalneeds);
+        }
+
 
         return expectedData;
 
