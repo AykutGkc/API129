@@ -1,4 +1,4 @@
-package HerOkuApp_SmokeTest;
+package herOkuApp_SmokeTest;
 
 import base_urls.HerOkuAppBaseUrl;
 import io.restassured.response.Response;
